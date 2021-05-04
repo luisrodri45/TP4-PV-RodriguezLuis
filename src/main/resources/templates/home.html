@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link th:rel="stylesheet" type="text/css" th:href="@{/css/misestilos.css}">
+<link th:rel="stylesheet" type="text/css"
+	th:tref="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}">
+<link th:rel="stylesheet"
+	th:tref="@{/webjars/font-awesome/5.11.2/css/all.css} " />
+    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>	
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">	
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">		
+<meta charset="UTF-8">
+<title>Principal</title>
+</head>
+<body class="cont">
+	<div class="container">
+		<div th:insert="layout/header :: header"></div>
+		<br>
+		<div class="inicia">
+			<br>
+			<h3>Iniciar sesion</h3>
+			<form>
+			  <div class="form-group">
+			    <label for="exampleInputEmail1">Nombre de usuario</label>
+			    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+			  </div>
+			  <div class="form-group">
+			    <label for="exampleInputPassword1">Contraseña</label>
+			    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+			  </div>
+			  <div class="form-row">
+			  	<div class="form-group col-md-6">
+			  		<button type="submit" class="btn btn-success btn-block">Ingresar</button>
+			  	</div>	
+			  	<div class="form-group col-md-6">
+			  		<button type="submit" class="btn btn-primary btn-block">Crear cuenta</button>
+			  		<small id="passwordHelpBlock" class="form-text text-muted">
+						Si no tienes cuenta 
+					</small>
+			  	</div>
+			  </div>
+	  		</form>
+	  	</div>
+	  <br><br><br><br>	
+	<div th:insert="layout/footer :: footer"></div>  		
+	</div>
+<script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}" type="text/javascript" src="webjars/jquery/3.5.1/jquery.min.js"></script>
+<script th:src="@{/webjars/popper.js/1.16.0/popper.min.js}" type="text/javascript" src="webjars/popper.js/1.16.0/popper.min.js"></script>			
+<script th:src="@{/webjars/bootstrap/4.5.0/js/bootstrap.min.js}" type="text/javascript" src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>	
+</body>
+</html>

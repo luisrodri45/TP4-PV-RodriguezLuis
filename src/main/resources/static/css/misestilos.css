@@ -1,0 +1,45 @@
+.navmio{
+	background:#8C89E7;
+	padding: 8px 16px 8px 16px;
+	margin-bottom:10px;
+	text-align:center;
+ 
+}
+.formi{
+	margin-right:auto;
+	align-items:center;
+	justify-content:center;
+}
+h3{
+	text-align:center;
+}
+.cont{
+	background:url(../img/empresa.jpg);
+	background-size:cover;
+	background-attachment:fixed;
+}
+th{
+	color:red;
+}
+.defecto{
+	background:url(../img/fondo1.jpg);
+	background-size:cover;
+	background-attachment:fixed;
+}
+.inicia{
+	color:#fff;
+	background: rgba(0,0,0,0.8);
+	padding:10px;
+	width:35%;
+	margin-left:auto;
+}
+a{
+	text-decoration:none;
+	color:black;
+}
+.columna{
+	position:sticky;
+	left:0;
+	background:#FA9E51;
+
+}
