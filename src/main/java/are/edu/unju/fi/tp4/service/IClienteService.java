@@ -8,4 +8,5 @@ public interface IClienteService {
 	public List<Cliente> obtenerTodosClientes();
 	public Cliente encontrarUnCliente(int dni,String email);
 	public void modificarCliente(Cliente clienteModificado);
+	public void eliminarCliente(int dni);
 }

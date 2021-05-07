@@ -65,11 +65,6 @@ public class ProductServiceImp implements IProductoService{
 		
 	}
 
-	@Override
-	public void eliminarProducto(Producto productoaEliminar) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public Producto obtenerProducto(String nombreProducto) {
@@ -106,6 +101,16 @@ public class ProductServiceImp implements IProductoService{
 		    }
 		}
 		return unProducto;
+	}
+
+	@Override
+	public void eliminarProducto(int id) {
+		for (int i = 0; i < listadoProductos.size(); i++){
+			if(listadoProductos.get(i).getCodigo()==id) {
+				listadoProductos.remove(i);
+			}
+		}
+		
 	}
 
 }

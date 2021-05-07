@@ -12,7 +12,7 @@ public interface IProductoService {
 	//como se hace la solucion al problema 
 	//guardar en una array o en una BD de oracle o MySql
 	public void guardarProducto(Producto unProducto);
-	public void eliminarProducto(Producto productoaEliminar);
+	public void eliminarProducto(int id);
 	public Producto obtenerProducto(String nombreProducto);
 	public List<Producto> obtenerTodosProductos();
 	public Producto obtenerProductoNuevo();
