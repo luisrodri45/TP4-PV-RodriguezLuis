@@ -39,10 +39,10 @@ public class ClienteServiceimp implements IClienteService{
 		return listadoClientes;
 	}
 
-	@Override
-	public Cliente encontrarUnCliente(int dni,String email) {
+	
+	public Cliente encontrarUnCliente1(int dni,Integer id) throws Exception{
 		for (int i = 0; i < listadoClientes.size(); i++){
-		    if ((listadoClientes.get(i).getNroDocumento() == dni)&&(listadoClientes.get(i).getEmail().equals(email))){
+		    if ((listadoClientes.get(i).getNroDocumento() == dni)){
 		    	unCliente = listadoClientes.get(i);
 		    }
 		}
@@ -78,6 +78,12 @@ public class ClienteServiceimp implements IClienteService{
 				listadoClientes.remove(i);
 			}
 		}
+	}
+
+	@Override
+	public Cliente encontrarUnCliente(int dni, Integer id) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

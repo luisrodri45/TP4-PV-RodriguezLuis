@@ -3,26 +3,48 @@ package are.edu.unju.fi.tp4.model;
 import java.time.LocalDate;
 import java.time.Period;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
-
+@Entity
+@Table (name="CLIENTES")
 @Component
 public class Cliente {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO, generator="native")
+	@GenericGenerator(name="native", strategy="native")
+	@Column
+	private Integer idCliente;
+	@Column
 	private int nroDocumento;
-
+	@Column
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaNacimiento;
-
 	//Calendar
 	//private Date fechaUltimCompra = new Date();
+	@Column
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaUltimaCompra;
+	@Column
 	private String tipoDocumento;
+	@Column
 	private int codigoAreaTelefono;
+	@Column
 	private int numTelefono;
+	@Column
 	private String email;
+	@Column
 	private String nombreApellido;
+	@Column
 	private String password;
+	private Integer idAux;
 	public Cliente() {
 		// TODO Auto-generated constructor stub
 	}
@@ -98,6 +120,14 @@ public class Cliente {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public Integer getIdCliente() {
+		return idCliente;
+	}
+
+	public void setIdCliente(Integer idCliente) {
+		this.idCliente = idCliente;
+	}
+
 	public int getEdad() {		
 		int edad = 0;
 		LocalDate hoy = LocalDate.now();
@@ -130,5 +160,12 @@ public class Cliente {
 			return "Año hasta tu cumpleaños: "+periodo2.getYears()+ " Mes: "+periodo2.getMonths()+" Dias: "+ periodo2.getDays();
 		}
 	}
-	
+
+	public Integer getIdAux() {
+		return idAux;
+	}
+
+	public void setIdAux(Integer idAux) {
+		this.idAux = idAux;
+	}
 }

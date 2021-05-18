@@ -10,8 +10,13 @@
 	align-items:center;
 	justify-content:center;
 }
+h2{
+	text-align:center;
+	color:red;
+}
 h3{
 	text-align:center;
+	font-weight:bolder;
 }
 .cont{
 	background:url(../img/empresa.jpg);
@@ -19,7 +24,8 @@ h3{
 	background-attachment:fixed;
 }
 th{
-	color:red;
+	color:white;
+	background:blue;
 }
 .defecto{
 	background:url(../img/fondo1.jpg);
@@ -40,6 +46,10 @@ a{
 .columna{
 	position:sticky;
 	left:0;
-	background:#FA9E51;
+	background:#1F1C1C;
 
+}
+label{
+	color:black;
+	font-weight:bolder;
 }

@@ -86,8 +86,7 @@
 <br>
 <h3>Lista de Clientes</h3><br>
 			<div class="table-responsive">
-				<table class="table">
-					<thead class="thead-dark">
+				<table class="table table-striped table-dark">
 				    	<tr>
 					      <th>Tipo Doc</th>
 					      <th class="columna">Nro de documento</th>
@@ -101,7 +100,6 @@
 					      <th>Datos adicionales</th>
 					      <th>Editar</th>			      
 				    	</tr>
-				    </thead>
 				    <tr th:if="${clientes.empty}">
             		<td colspan="2"> No hay clientes en el listado </td>
         		</tr>
@@ -116,9 +114,9 @@
 						<td th:text="${cli.codigoAreaTelefono+'-'+cli.numTelefono}"></td>
 						<td th:text="${cli.getTiempoDesdeUltimaCompra()}"></td>
 						<td th:text="${cli.getTiempoDesdeCumple()}"></td>
-						<td><a href="#" th:href="@{'/cliente/editar/'+${cli.nroDocumento}+'/'+${cli.email}}">
+						<td><a href="#" th:href="@{'/cliente/editar/'+${cli.nroDocumento}+'/'+${cli.idCliente}}">
 									<i class="fa fa-edit"></i></a>
-						<a
+						<a 
 						th:onclick="'javascript:confirmarEliminar(\''+${cli.nroDocumento}+'\');'">
 							<i class="fa fa-trash-alt"></i>
 						</a></td>									

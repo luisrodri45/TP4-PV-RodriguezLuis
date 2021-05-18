@@ -17,28 +17,27 @@
 <link rel="stylesheet"
 	href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Ventas</title>
 </head>
 <body class="defecto">
 	<div class="container">
-	<div th:insert="layout/header :: header"></div>
-	<div class="row col-md-12">
-			<div th:each="c : ${productos}">
-				<div class="col-md-3">
-					<div class="card" style="width: 15rem;">
-  						<img src="/img/producto.jpg" class="card-img-top" alt="imagen de producto">
-						<div class="card-body">
-							<h5 class="card-title" th:text="${'Codigo: ' + c.codigo}">Id</h5>
-							<p class="card-text" th:text="${'Nombre: '+c.nombre}">Nombre</p>
-							<p class="card-text" th:text="${'Precio: '+c.precio}">Precio</p>
-							<a class="stretched-link btn btn-primary"><i class="fas fa-shopping-cart mr-2"></i> Comprar</a>
+		<div th:insert="layout/header :: header"></div>
+			<div class="row">
+					<div th:each="c : ${productos}">
+						<div class="col-sm-6">
+							<div class="card" style="width: 14.99999rem;margin-top: 10px">
+		  						<img src="/img/producto.jpg" class="card-img-top" alt="imagen de producto">
+								<div class="card-body">
+									<h5 class="card-title" th:text="${'Codigo: ' + c.codigo}">Id</h5>
+									<p class="card-text" th:text="${'Nombre: '+c.nombre}">Nombre</p>
+									<p class="card-text" th:text="${'Precio: '+c.precio}">Precio</p>
+									<a class="stretched-link btn btn-primary"><i class="fas fa-shopping-cart mr-2"></i> Comprar</a>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
 			</div>
-		</div>
-	
-	<div th:insert="layout/footer :: footer"></div>
+		<div th:insert="layout/footer :: footer"></div>
 	</div>
 </body>
 <script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"

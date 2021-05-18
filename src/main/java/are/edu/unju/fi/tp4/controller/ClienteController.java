@@ -18,9 +18,9 @@ import are.edu.unju.fi.tp4.model.Cliente;
 @Controller
 public class ClienteController {
 	private static final Log LOGGER = LogFactory.getLog(ClienteController.class);
-
+	int aux=0;
 	@Autowired
-	@Qualifier("unImp")
+	@Qualifier("impmysql")
 	IClienteService clienteService;
 
 	@GetMapping("/cliente/mostrar")
@@ -30,11 +30,12 @@ public class ClienteController {
 		model.addAttribute("clientes", clienteService.obtenerTodosClientes());
 		return("cliente");
 	}
-	@GetMapping("/cliente/editar/{nroDocumento}/{email}")
-	public String editarCliente(Model model, @PathVariable(name="nroDocumento") int dni, @PathVariable(name="email") String email) throws Exception {
+	@GetMapping("/cliente/editar/{nroDocumento}/{id}")
+	public String editarCliente(Model model, @PathVariable(name="nroDocumento") int dni, @PathVariable(name="id") Integer id) throws Exception {
 		try {
-			Cliente clienteEncontrado = clienteService.encontrarUnCliente(dni,email);
-			model.addAttribute("unCliente", clienteEncontrado);	
+			aux=id;
+			Cliente clienteEncontrado = clienteService.encontrarUnCliente(dni,id);
+			model.addAttribute("unCliente", clienteEncontrado);
 			model.addAttribute("editMode", "true");
 		}
 		catch (Exception e) {
@@ -57,8 +58,10 @@ public class ClienteController {
 		return("cliente");
 	}
 	@PostMapping("/cliente/modificar")
-	public String modificarCliente(@ModelAttribute("unCliente") Cliente clienteModificado, Model model) {
+	public String modificarCliente(@ModelAttribute("unCliente") Cliente clienteModificado,Model model) {
 		try {
+			LOGGER.info("METHOD: Modificando cliente en controller: "+clienteModificado.getIdCliente());
+			clienteModificado.setIdCliente(aux);
 			clienteService.modificarCliente(clienteModificado);
 			model.addAttribute("unCliente", new Cliente());				
 			model.addAttribute("editMode", "false");

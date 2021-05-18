@@ -1,9 +1,9 @@
 package are.edu.unju.fi.tp4.service.imp;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import org.apache.commons.logging.Log;
@@ -15,6 +15,7 @@ import are.edu.unju.fi.tp4.service.IProductoService;
 
 import are.edu.unju.fi.tp4.util.ListadoProductos;
 @Service
+@Qualifier("otroImp1")
 public class ProductServiceImp implements IProductoService{
 	private static final Log LUIS = LogFactory.getLog(ProductServiceImp.class);
 	//como se hace la solucion del problema
@@ -94,7 +95,8 @@ public class ProductServiceImp implements IProductoService{
 	}
 
 	@Override
-	public Producto encontrarUnProducto(int codigo, String nombre) {
+	//esto esta mal
+	public Producto encontrarUnProducto(int codigo, Integer nombre) {
 		for (int i = 0; i < listadoProductos.size(); i++){
 		    if ((listadoProductos.get(i).getCodigo() == codigo)&&(listadoProductos.get(i).getNombre().equals(nombre))){
 		    	unProducto = listadoProductos.get(i);

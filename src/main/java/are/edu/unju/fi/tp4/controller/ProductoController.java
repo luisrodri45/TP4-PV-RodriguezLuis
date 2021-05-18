@@ -1,6 +1,7 @@
 package are.edu.unju.fi.tp4.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,8 +13,9 @@ import are.edu.unju.fi.tp4.model.Producto;
 import are.edu.unju.fi.tp4.service.IProductoService;
 @Controller
 public class ProductoController {
-	
+	Integer aux=0;
 		@Autowired
+		@Qualifier("impdos")
 		IProductoService productoService;
 		
 		@GetMapping("/producto/mostrar")
@@ -23,10 +25,11 @@ public class ProductoController {
 			model.addAttribute("productos", productoService.obtenerTodosProductos());
 			return "producto";
 		}
-		@GetMapping("/producto/editar/{codigo}/{nombre}")
-		public String editarProducto(Model model, @PathVariable(name="codigo") int codigo, @PathVariable(name="nombre") String nombre) throws Exception {
+		@GetMapping("/producto/editar/{codigo}/{id}")
+		public String editarProducto(Model model, @PathVariable(name="codigo") int codigo, @PathVariable(name="id") Integer id) throws Exception {
 			try {
-				Producto productoEncontrado = productoService.encontrarUnProducto(codigo,nombre);
+				aux=id;
+				Producto productoEncontrado = productoService.encontrarUnProducto(codigo,id);
 				model.addAttribute("unProducto", productoEncontrado);	
 				model.addAttribute("editMode", "true");
 			}
@@ -50,6 +53,7 @@ public class ProductoController {
 		@PostMapping("/producto/modificar")
 		public String modificarProducto(@ModelAttribute("unProducto") Producto productoModificado, Model model) {
 			try {
+				productoModificado.setIdProducto(aux);
 				productoService.modificarProducto(productoModificado);
 				model.addAttribute("unProducto", new Producto());				
 				model.addAttribute("editMode", "false");
