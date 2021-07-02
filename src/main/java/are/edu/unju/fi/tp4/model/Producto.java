@@ -1,24 +1,33 @@
 package are.edu.unju.fi.tp4.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.stereotype.Component;
-@Entity
+
 @Table (name="PRODUCTOS")
 @Component
+@Entity
 public class Producto {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO, generator="native")
 	@GenericGenerator(name="native", strategy="native")
 	@Column
 	private Integer idProducto;
-	@Column(unique=true)
+	@Column
 	private int codigo;
 	@Column
 	private String nombre;
@@ -30,6 +39,11 @@ public class Producto {
 	private int stock;
 	@Column
 	private String descripcion;
+	@Lob
+	@Column(name = "prod_imagen", columnDefinition = "LONGBLOB")
+	private String imagen;
+	//@OneToMany(mappedBy ="producto", cascade = CascadeType.ALL)
+	//private List<Venta> ventas;
 	public Producto() {
 		// TODO Auto-generated constructor stub
 	}
@@ -93,6 +107,14 @@ public class Producto {
 
 	public void setIdProducto(Integer idProducto) {
 		this.idProducto = idProducto;
+	}
+
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
 	}
 	
 }

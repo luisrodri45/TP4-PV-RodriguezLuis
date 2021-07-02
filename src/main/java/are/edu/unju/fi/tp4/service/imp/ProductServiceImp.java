@@ -115,4 +115,10 @@ public class ProductServiceImp implements IProductoService{
 		
 	}
 
+	@Override
+	public Producto obtenerProductoCodigo(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

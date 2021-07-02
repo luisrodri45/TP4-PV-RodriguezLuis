@@ -13,5 +13,5 @@ public interface IProductoService {
 	public Producto obtenerUltimoProducto();
 	public Producto encontrarUnProducto(int codigo,Integer id) throws Exception;
 	public void modificarProducto(Producto productoModificado) throws Exception;
-	
+	public Producto obtenerProductoCodigo(Integer id);
 }

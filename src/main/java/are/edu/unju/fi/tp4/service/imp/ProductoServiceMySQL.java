@@ -83,6 +83,13 @@ public class ProductoServiceMySQL implements IProductoService{
 		hacia.setNombre(desde.getNombre());
 		hacia.setPrecio(desde.getPrecio());
 		hacia.setStock(desde.getStock());
+		hacia.setImagen(desde.getImagen());
 		//observen que NO se ha cambiado el id, ya que ese atributo no debería permitirse cambiar
+	}
+
+	@Override
+	public Producto obtenerProductoCodigo(Integer id) {
+		// TODO Auto-generated method stub
+		return productoDAO.findById(id).orElseThrow();
 	}
 }

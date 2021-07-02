@@ -9,6 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -23,6 +27,9 @@ public class Cliente {
 	@Column
 	private Integer idCliente;
 	@Column
+	@Min(100000)
+	@Max(9999999)
+	@NotNull(message="Debe ingresar al menos un numero")
 	private int nroDocumento;
 	@Column
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -33,6 +40,7 @@ public class Cliente {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaUltimaCompra;
 	@Column
+	@NotBlank(message="Debe incluir el tipo de documento")
 	private String tipoDocumento;
 	@Column
 	private int codigoAreaTelefono;
@@ -41,8 +49,10 @@ public class Cliente {
 	@Column
 	private String email;
 	@Column
+	@NotBlank(message="Debe incluir su nombre y apellido")
 	private String nombreApellido;
 	@Column
+	@NotBlank(message="Debe ingresar una contraseña")
 	private String password;
 	private Integer idAux;
 	public Cliente() {
